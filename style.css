@@ -1,0 +1,51 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  overflow: hidden;
+}
+
+h2 {
+  font-family: sans-serif;
+  text-align: center;
+}
+video {
+  width: auto;
+  max-height: 500px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+a,
+button {
+  display: block;
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+  transition: opacity 300ms ease;
+  transition-property: opactiy, transform;
+  opacity: 0.5;
+  min-width: 200px;
+  border: none;
+}
+
+a:focus,
+a:hover,
+button:focus,
+button:hover {
+  outline: none;
+  opacity: 1;
+  transform: scale(1.1);
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Video</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <h2>Native Peloton VOD</h2>
+    <video id="video" src="" controls></video>
+    <button id="endButton">End Video</button>
+    <script>
+        const button = document.querySelector("button");
+
+        button.addEventListener('click', event => {
+            video.src = '';
+            video.load();
+            window.location = "./index.html"
+        });
+    </script>
+</body>
+
+</html>
