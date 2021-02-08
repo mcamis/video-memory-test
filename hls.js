@@ -32,7 +32,8 @@ function setup(src) {
   });
 
   const button = document.querySelector("button");
-  button.addEventListener("click", (event) => {
+  button.addEventListener("click", () => {
+    hls.streamController.mediaBuffer.remove(0, Infinity);
     hls.destroy();
     video.src = "";
     video.load();
