@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Video</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        video {
+            width: auto;
+            max-height: 500px;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="video" controls></video>
+    <button id="endButton">End Video</button>
+    <script>
+        const MB_IN_DECIMAL_BYTES = 1000000;
+        const BUFFER_SIZE = 31 * MB_IN_DECIMAL_BYTES;
+        const video = document.getElementById('video');
+        const videoSrc = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
+        const hls = new Hls({
+            enableWorker: false,
+            maxBufferSize: BUFFER_SIZE,
+            maxMaxBufferLength: 25,
+            startLevel: -1,
+        });
+        hls.loadSource(videoSrc);
+        hls.attachMedia(video);
+        hls.on('hlsManifestParsed', () => hls.media.play());
+
+        hls.on(Hls.Events.ERROR, (_, data) => {
+            if (data.fatal) {
+                switch (data.type) {
+                    case Hls.ErrorTypes.NETWORK_ERROR:
+                        hls.startLoad();
+                        break;
+                    case Hls.ErrorTypes.MEDIA_ERROR:
+                        hls.recoverMediaError();
+                        break;
+                    default:
+                        console.error('Unrecoverable hls error');
+                        hls.destroy();
+                        break;
+                }
+            }
+        });
+
+        const button = document.querySelector("button");
+        console.log({ button })
+
+        button.addEventListener('click', event => {
+            hls.destroy();
+            video.src = '';
+            video.load();
+            window.location = "http://127.0.0.1:3000"
+        });
+    </script>
+</body>
+
+</html>
