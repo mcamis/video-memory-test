@@ -31,12 +31,17 @@ function setup(src) {
     }
   });
 
-  const button = document.querySelector("button");
-  button.addEventListener("click", () => {
+  const endButton = document.getElementById("endVideo");
+  endButton.addEventListener("click", () => {
     hls.streamController.mediaBuffer.remove(0, Infinity);
     hls.destroy();
     video.src = "";
     video.load();
     window.location = "./index.html";
+  });
+
+  const refreshButton = document.getElementById("refresh");
+  refreshButton.addEventListener("click", () => {
+    window.location.reload();
   });
 }

@@ -39,6 +39,8 @@ button {
   opacity: 0.5;
   min-width: 200px;
   border: none;
+  line-height: 18px;
+  font-size: 18px;
 }
 
 a:focus,
@@ -48,4 +50,11 @@ button:hover {
   outline: none;
   opacity: 1;
   transform: scale(1.1);
+}
+
+div > button {
+  display: inline-block;
+}
+div > button:first-child {
+  margin-right: 20px;
 }
