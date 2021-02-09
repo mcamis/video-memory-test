@@ -54,7 +54,5 @@ button:hover {
 
 div > button {
   display: inline-block;
-}
-div > button:first-child {
-  margin-right: 20px;
+  margin: 0 10px;
 }

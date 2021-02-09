@@ -20,7 +20,10 @@
     <!-- <a href="./native_pelo.html">Native Peloton VOD</a> -->
     <a href="./native_generic_vod.html">Native Generic VOD</a>
     <!-- <a href="./native_generic_vod.html">Native Generic Live Stream</a> -->
-    <button id="refresh">Refresh Page</button>
+    <div>
+        <button id="refresh">Refresh Page</button>
+        <button onclick="window.gc();">gc</button>
+    </div>
     <script>
 
         const refreshButton = document.getElementById("refresh");
